@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_pvg_purchase_reports" name="Reports" parent="purchase.menu_purchase_root"/>
+    <menuitem id="menu_pvg_purchase_accruals" name="Accruals Report" parent="pvg_purchase.menu_pvg_purchase_reports" action="act_open_pvg_purchase_accruals_view"/>
+    <menuitem id="menu_pvg_purchase_deliveries" name="Deliveries Report" parent="pvg_purchase.menu_pvg_purchase_reports" action="act_open_pvg_purchase_deliveries_view"/>
+    <menuitem id="menu_pvg_purchase_price_changes" name="Price Changes Report" parent="pvg_purchase.menu_pvg_purchase_reports" action="act_open_pvg_purchase_price_changes_view"/>
+    <menuitem id="menu_pvg_purchase_vendors_price_history" name="Purchase Vendors Price History" parent="pvg_purchase.menu_pvg_purchase_reports" action="act_open_pvg_purchase_vendors_price_history_view"/>
+    <menuitem id="menu_pvg_purchase_products_price_history" name="Purchase Products Price History" parent="pvg_purchase.menu_pvg_purchase_reports" action="act_open_pvg_purchase_products_price_history_view"/>
+    <menuitem id="menu_pvg_purchase_order_line" name="Order Lines" parent="pvg_purchase.menu_pvg_purchase_reports" action="act_open_pvg_purchase_order_line_view"/>
+</odoo>

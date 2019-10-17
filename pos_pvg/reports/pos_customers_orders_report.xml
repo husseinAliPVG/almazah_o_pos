@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<odoo>
+    <report id="pos_customers_orders_report" string="POS Customers Orders Report" model="pos.customers.orders.report" report_type="qweb-html" name="pos_pvg.report_pos_customers_orders_template" />
+    <template id="report_pos_customers_orders_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <br/>
+                    <br/>
+                    <div class="row bg-primary">
+                        <div class="col-12 h3" style="text-align: center;">
+                            <span>POS Customers Orders Report</span>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div style="page-break-inside: avoid">
+                        <t t-foreach="docs" t-as="doc">
+                            <t t-foreach="doc.pos_customer_orders_report" t-as="customer_report">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <t t-if="customer_report.customer">
+                                            <strong>Customer: </strong>
+                                            <span t-field="customer_report.customer"/>
+                                        </t>
+                                        <t t-else="">
+                                        <strong>Cash </strong></t>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <strong>From: </strong>
+                                        <span t-field="customer_report.start_date"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <strong>To: </strong>
+                                        <span t-field="customer_report.end_date"/>
+                                    </div>
+                                </div>
+                                <table class="table o_report_block_table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <span>Product</span>
+                                            </th>
+                                            <th>
+                                                <span>Quantity</span>
+                                            </th>
+                                            <th>
+                                                <span>Sales</span>
+                                            </th>
+                                            <th>
+                                                <span>Discount</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-set="t_quantity" t-value="0"/>
+                                        <t t-set="t_total_sales" t-value="0"/>
+                                        <t t-set="t_total_discount" t-value="0"/>
+                                        <tr t-foreach="customer_report.report_lines_ids" t-as="report_line">
+                                            <td>
+                                                <span t-field="report_line.product.display_name"/>
+                                            </td>
+                                            <td>
+                                                <t t-set="t_quantity" t-value="t_quantity+report_line.quantity"/>
+                                                <span t-field="report_line.quantity"/>
+                                            </td>
+                                            <td>
+                                                <t t-set="t_total_sales" t-value="t_total_sales+report_line.sales"/>
+                                                <span t-field="report_line.sales"/>
+                                            </td>
+                                            <td>
+                                                <t t-set="t_total_discount" t-value="t_total_discount+report_line.discount"/>
+                                                <span t-field="report_line.discount"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <span>Total</span>
+                                            </th>
+                                            <th>
+                                                <span t-esc="t_quantity"/>
+                                            </th>
+                                            <th>
+                                                <span t-esc="'{:10.2f}'.format(t_total_sales)"/>
+                                            </th>
+                                            <th>
+                                                <span t-esc="'{:10.2f}'.format(t_total_discount)"/>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+
+                            <hr/>
+                            <style>
+                            table th, table td {
+                                padding: 5px 5px 5px 5px !important;
+                                border: 1px solid;
+                                text-align: center;
+                            }
+                            body {
+                                font-size: 14px;
+                            }
+                            </style>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

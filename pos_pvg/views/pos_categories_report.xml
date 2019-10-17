@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_pos_categories_report_tree" model="ir.ui.view">
+            <field name="name">pos.categories.report.tree</field>
+            <field name="model">pos.categories.report</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="POS Categories Orders Report">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="report_categories"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pos_categories_report_form" model="ir.ui.view">
+            <field name="name">pos.categories.report.form</field>
+            <field name="model">pos.categories.report</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="POS Categories Orders Report">
+                    <sheet>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <strong>Keep Categories empty if you want to get report for all saleable Categories, Or select some Categories for a particular Categories report</strong>
+                        </group>
+                        <group>
+                            <field name="pos_categories"/>
+                        </group>
+                        <group>
+                            <button name="calculate_report_lines" string="Calculate" type="object" class="btn-primary"/>
+                        </group>
+                        <group>
+                            <field name="report_categories" string="Lines">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="qty" sum="Total Quantity"/>
+                                    <field name="qty_per"/>
+                                    <field name="sales" sum="Total Sales"/>
+                                    <field name="sales_per"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="name"/>
+                                        </group>
+                                        <group>
+                                            <field name="categories_report_products">
+                                                <tree>
+                                                    <field name="name"/>
+                                                    <field name="qty" sum="Total Quantity"/>
+                                                    <field name="qty_per"/>
+                                                    <field name="sales" sum="Total Sales"/>
+                                                    <field name="sales_per"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pos_categories_report_search" model="ir.ui.view">
+            <field name="name">pos.categories.report.search</field>
+            <field name="model">pos.categories.report</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="POS Categories Orders Report">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_view_pos_categories_report_view">
+            <field name="name">POS Categories Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.categories.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_pos_categories_report_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_categories_report_form">
+            <field name="act_window_id" ref="act_open_view_pos_categories_report_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pos_categories_report_form"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_categories_report_tree">
+            <field name="act_window_id" ref="act_open_view_pos_categories_report_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pos_categories_report_tree"/>
+        </record>
+    </data>
+    <menuitem id="menu_pos_categories_report" name="Categories Report" parent="point_of_sale.menu_point_rep"
+              action="act_open_view_pos_categories_report_view"/>
+</odoo>

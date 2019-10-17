@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_pvg_purchase_accruals_tree" model="ir.ui.view">
+            <field name="name">purchase.accruals.tree</field>
+            <field name="model">purchase.accruals</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Purchase Accrual">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="accruals_lines"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pvg_purchase_accruals_form" model="ir.ui.view">
+            <field name="name">purchase.accruals.form</field>
+            <field name="model">purchase.accruals</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Purchase Accrual">
+                    <sheet>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="company"/>
+                        </group>
+                        <group>
+                            <button name="calculate_accruals_linse" string="Calculate" type="object" class="btn-primary"/>
+                        </group>
+                        <group>
+                            <field name="accruals_lines">
+                                <tree>
+                                    <field name="po_reference"/>
+                                    <field name="po_partner_id"/>
+                                    <field name="po_date_order"/>
+                                    <field name="po_amount_untaxed" sum="Total Untaxed" widget="monetary"/>
+                                    <field name="po_amount_total" sum="Total" widget="monetary"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_pvg_purchase_accruals_view">
+            <field name="name">Purchase Accrual</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.accruals</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_accruals_view_form">
+            <field name="act_window_id" ref="act_open_pvg_purchase_accruals_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pvg_purchase_accruals_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_accruals_view_tree">
+            <field name="act_window_id" ref="act_open_pvg_purchase_accruals_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pvg_purchase_accruals_tree"/>
+        </record>
+    </data>
+</odoo>

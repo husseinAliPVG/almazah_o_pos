@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_pos_customer_orders_report_line_tree" model="ir.ui.view">
+            <field name="name">pos.customer.orders.report.line.tree</field>
+            <field name="model">pos.customer.orders.report.line</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="POS Customer Orders Report Lines">
+                    <field name="pos_customer_orders_report"/>
+                    <field name="customer"/>
+                    <field name="product"/>
+                    <field name="quantity"/>
+                    <field name="sales"/>
+                    <field name="discount"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_pos_customer_orders_report_line_form" model="ir.ui.view">
+            <field name="name">pos.customer.orders.report.line.form</field>
+            <field name="model">pos.customer.orders.report.line</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="POS Customer Orders Report Line">
+                    <sheet>
+                        <field name="pos_customer_orders_report"/>
+                    <field name="customer"/>
+                    <field name="product"/>
+                    <field name="quantity"/>
+                    <field name="sales"/>
+                    <field name="discount"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_pos_customer_orders_report_line_search" model="ir.ui.view">
+            <field name="name">pos.customer.orders.report.line.search</field>
+            <field name="model">pos.customer.orders.report.line</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="POS Customer Orders Report Line">
+                    <field name="pos_customer_orders_report"/>
+                    <field name="customer"/>
+                    <field name="product"/>
+                    <field name="quantity"/>
+                    <field name="sales"/>
+                    <field name="discount"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_view_pos_customer_orders_report_line_view">
+            <field name="name">POS Customer Orders Report Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.customer.orders.report.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_pos_customer_orders_report_line_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_customer_orders_report_line_form">
+            <field name="act_window_id" ref="act_open_view_pos_customer_orders_report_line_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pos_customer_orders_report_line_form" />
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_customer_orders_report_line_tree">
+            <field name="act_window_id" ref="act_open_view_pos_customer_orders_report_line_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pos_customer_orders_report_line_tree" />
+        </record>
+    </data>
+    <menuitem id="menu_pos_misc" name="misc" parent="point_of_sale.menu_point_rep" sequence="100"/>
+    <menuitem id="menu_pos_customer_orders_report_line" name="Customer Orders Report Lines" parent="menu_pos_misc" action="act_open_view_pos_customer_orders_report_line_view" />
+
+</odoo>

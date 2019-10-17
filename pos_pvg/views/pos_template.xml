@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_mrp" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <!-- <script type="text/javascript" src="/pos_pvg/static/src/js/models.js"></script> -->
+                <script type="text/javascript" src="/pos_pvg/static/src/js/pos_mrp.js"></script>
+                <script type="text/javascript" src="/pos_pvg/static/src/js/pos_multi_categories.js"></script>
+                <script type="text/javascript" src="/pos_pvg/static/src/js/pos_order_type.js"></script>
+                <!-- <script type="text/javascript" src="/pos_pvg/static/src/js/pos_screens.js"></script> -->
+            </xpath>
+            <xpath expr="//link[@id='pos-stylesheet']" position="after">
+              <link rel="stylesheet" href="/pos_pvg/static/src/css/pos_pvg.css"/>
+          </xpath>
+        </template>
+    </data>
+</odoo>

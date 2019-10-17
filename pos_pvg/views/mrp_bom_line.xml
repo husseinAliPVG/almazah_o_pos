@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pvg_mrp_bom_line_form" model="ir.ui.view">
+        <field name="name">mrp.bom.line.view.form</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_line_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_qty']" position="attributes">
+                <attribute name="string">Ebom Quantity</attribute>
+            </xpath>
+            <xpath expr="//div[@class='o_row']" position="after">
+                <label for="scrap_product_qty" string="Loss Quantity"/>
+                <div class="o_row">
+                    <field name="scrap_product_qty"/>
+                    <field name="product_uom_id" options="{'no_open':True,'no_create':True}" groups="uom.group_uom"/>
+                </div>
+                <label for="total_product_qty" string="Total Quantity"/>
+                <div class="o_row">
+                    <field name="total_product_qty"/>
+                    <field name="product_uom_id" options="{'no_open':True,'no_create':True}" groups="uom.group_uom"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="pvg_mrp_bom_form_view" model="ir.ui.view">
+        <field name="name">mrp.bom.form</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bom_line_ids']/tree/field[@name='product_qty']" position="attributes">
+                <attribute name="string">Ebom Quantity</attribute>
+            </xpath>
+            <xpath expr="//field[@name='bom_line_ids']/tree/field[@name='product_uom_id']"
+                   position="replace">
+                <field name="product_uom_id" string="UOM" options="{'no_open':True,'no_create':True}"
+                       groups="uom.group_uom"/>
+                <field name="scrap_product_qty"/>
+                <field name="total_product_qty"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

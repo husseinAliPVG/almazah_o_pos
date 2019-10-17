@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_pos_sales_cost_report_tree" model="ir.ui.view">
+            <field name="name">pos.sales.cost.report.tree</field>
+            <field name="model">pos.sales.cost.report</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="POS Sales and Cost Reports">
+                    <field name="start_date_time" />
+                    <field name="end_date_time" />
+                    <field name="products" widget="many2many_tags"/>
+                    <field name="sales"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_pos_sales_cost_report_form" model="ir.ui.view">
+            <field name="name">pos.sales.cost.report.form</field>
+            <field name="model">pos.sales.cost.report</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="POS Sales and Cost Reports">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="start_date_time"/>
+                            </group>
+                            <group>
+                                <field name="end_date_time"/>
+                            </group>
+                        </group>
+                        <group>
+                            <strong>Keep products empty if you want to get report for all saleable products, Or select some products for a particular products report</strong>
+                        </group>
+                        <group>
+                            <field name="products" invisible="0"/>
+                        </group>
+                        <group>
+                            <field name="pos_orders" invisible="1" />
+                        </group>
+                        <group>
+                            <button name="calculate_report_linse" string="Calculate" type="object" class="btn-primary"/>
+                            <!-- <button string="Cancel" class="btn-secondary" special="cancel" /> -->
+                        </group>
+                        <group>
+                            <field name="report_lines_ids">
+                                <tree>
+                                    <field name="product"/>
+                                    <field name="quantity" sum="Quantity" widget="monetary"/>
+                                    <field name="sales_price"/>
+                                    <field name="total_sales" sum="Total Sales" widget="monetary"/>
+                                    <field name="total_discount" sum="Total Discount" widget="monetary"/>
+                                    <field name="discount_per"/>
+                                    <field name="cost"/>
+                                    <field name="total_cost" sum="Total Cost" widget="monetary"/>
+                                    <field name="cost_per"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_pos_sales_cost_report_search" model="ir.ui.view">
+            <field name="name">pos.sales.cost.report.search</field>
+            <field name="model">pos.sales.cost.report</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="POS Sales and Cost Reports">
+                    <field name="start_date_time" />
+                    <field name="end_date_time" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_view_pos_sales_cost_report_view">
+            <field name="name">POS Sales and Cost Reports</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.sales.cost.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_pos_sales_cost_report_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_sales_cost_report_form">
+            <field name="act_window_id" ref="act_open_view_pos_sales_cost_report_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pos_sales_cost_report_form" />
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_sales_cost_report_tree">
+            <field name="act_window_id" ref="act_open_view_pos_sales_cost_report_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pos_sales_cost_report_tree" />
+        </record>
+    </data>
+
+    <menuitem id="menu_pos_sales_cost_report" name="Sales &amp; Cost Reports" parent="point_of_sale.menu_point_rep" action="act_open_view_pos_sales_cost_report_view" />
+
+</odoo>

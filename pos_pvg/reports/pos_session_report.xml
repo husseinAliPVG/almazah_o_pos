@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<odoo>
+    <report id="pos_session_report" string="POS session Report" model="pos.session" report_type="qweb-html"
+            name="pos_pvg.report_pos_session_template"/>
+    <template id="report_pos_session_template">
+        <t t-call="web.html_container">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <div>
+                        <strong>AL MAZAH PASTRIES AL YAHAR</strong>
+                        <br/>
+                        <hr style="border: dotted 2px; width: 100%"/>
+                        <br/>
+                        <span>Daily Sales Report</span>
+                        <br/>
+                        <hr style="border: dotted 2px; width: 100%"/>
+                        <br/>
+                    </div>
+                    <div>
+                        <strong>Cashier:</strong>
+                        <span t-field="doc.user_id"/>
+                        <br/>
+                        <strong>Session:</strong>
+                        <span t-field="doc.name"/>
+                        <br/>
+                        <strong>No of Orders:</strong>
+                        <span t-field="doc.orders_count"/>
+                        <br/>
+                        <strong>Start at:</strong>
+                        <span t-field="doc.start_at"/>
+                        <br/>
+                        <strong>Closed at:</strong>
+                        <span t-field="doc.stop_at"/>
+                        <br/>
+                        <br/>
+                        <hr style="border: dotted 2px; width: 100%"/>
+                        <br/>
+                        <strong>Net Sales:</strong>
+                        <span t-field="doc.net_sales"/>
+                        <br/>
+                        <strong>Discount:</strong>
+                        <span t-field="doc.sales_discount"/>
+                        <br/>
+                        <strong>VAT (5%):</strong>
+                        <span t-field="doc.vat_amount"/>
+                        <br/>
+                        <strong>Total Revenue:</strong>
+                        <span t-field="doc.sales_revenue"/>
+                        <br/>
+                        <br/>
+                        <hr style="border: dotted 2px; width: 100%"/>
+                        <br/>
+                        <t t-foreach="doc.statement_ids" t-as="statement">
+                            <strong t-field="statement.journal_id.display_name"/>
+                            <span>:</span>
+                            <span t-field="statement.total_entry_encoding"/>
+                            <br/>
+                        </t>
+                        <br/>
+                        <hr style="border: dotted 2px; width: 100%"/>
+                        <br/>
+                        <strong>Total Item Discount:</strong>
+                        <span t-field="doc.total_item_discount"/>
+                        <br/>
+                        <hr style="border: dotted 2px; width: 100%"/>
+                        <br/>
+                        <strong>Credit Customers:</strong>
+                        <br/>
+                        <t t-foreach="doc.debt_customers" t-as="debt_customer">
+                            <span t-field="debt_customer.name"/>
+                            <span>:</span>
+                            <span t-field="debt_customer.debt"/>
+                            <br/>
+                        </t>
+                        <br/>
+                        <hr style="border: dotted 2px; width: 100%"/>
+                        <br/>
+                        <strong>Categories Sales:</strong>
+                        <t t-foreach="doc.categories_sales" t-as="category_sales">
+                            <br/>
+                            <span t-field="category_sales.name"/>
+                            <span>:</span>
+                            <span t-field="category_sales.sales"/>
+                        </t>
+                    </div>
+                    <br/>
+                    <br/><br/>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_pos_order_type_tree" model="ir.ui.view">
+            <field name="name">pos.order.type.tree</field>
+            <field name="model">pos.order.type</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="POS Order Type" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_view_pos_order_type_view">
+            <field name="name">POS Order Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.order.type</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_order_type_tree">
+            <field name="act_window_id" ref="act_open_view_pos_order_type_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pos_order_type_tree" />
+        </record>
+    </data>
+    <menuitem id="menu_pos_order_type" name="Customer Orders Report Lines" parent="point_of_sale.menu_point_config_product" action="act_open_view_pos_order_type_view" />
+</odoo>

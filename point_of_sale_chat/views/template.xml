@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="assets_backend" name="point_of_sale_chat assets" inherit_id="point_of_sale.index">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/point_of_sale_chat/static/src/js/pos_chat.js"/>
+		</xpath>
+	</template>
+
+	<template id="assets" inherit_id="point_of_sale.assets">
+		<xpath expr="." position="inside">
+			<t t-call="web._assets_helpers"/>
+
+
+			<link rel="stylesheet" type="text/scss" href="/point_of_sale_chat/static/src/scss/import_bootstrap_part2.scss"/>
+
+
+
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/announcement.scss"/>
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/discuss.scss"/>
+			<link href="/point_of_sale_chat/static/src/scss/composer.scss" rel="stylesheet" type="text/scss"/>
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/thread_window.scss"/>
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/composer.scss"/>
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/chatter.scss"/>
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/followers.scss"/>
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/thread.scss"/>
+			<!--link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/systray.scss"/-->
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/kanban_view.scss"/>
+			<link rel="stylesheet" type="text/scss" href="/mail/static/src/scss/attachment_box.scss"/>
+			<link href="/point_of_sale_chat/static/src/scss/message.scss" rel="stylesheet" type="text/scss"/>
+
+		</xpath>
+	</template>
+</odoo>

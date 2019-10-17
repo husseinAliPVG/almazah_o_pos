@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_pos_customers_orders_report_tree" model="ir.ui.view">
+            <field name="name">pos.customers.orders.report.tree</field>
+            <field name="model">pos.customers.orders.report</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="POS Custoemrs Orders Reports">
+                    <field name="start_date" />
+                    <field name="end_date" />
+                    <field name="products"/>
+                    <field name="customers" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_pos_customers_orders_report_form" model="ir.ui.view">
+            <field name="name">pos.customers.orders.report.form</field>
+            <field name="model">pos.customers.orders.report</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="POS Custoemrs Orders Reports">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="start_date"/>
+                            </group>
+                            <group>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="customers"/>
+                        </group>
+                        <group>
+                            <field name="products"/>
+                        </group>
+                        <group>
+                            <field name="pos_orders" invisible="1" />
+                        </group>
+                        <group>
+                            <button name="calculate_sales" string="Calculate" type="object" class="btn-primary"/>
+                        </group>
+                        <group>
+                            <field name="pos_customer_orders_report" invisible="0">
+                                <tree>
+                                    <field name="customer"/>
+<!--                                    <field name="products"/>-->
+                                    <field name="report_lines_ids" string="Products"/>
+                                    <field name="total_quantity" sum="Quantity" widget="monetary"/>
+                                    <field name="total_sales" sum="Sales" widget="monetary"/>
+                                    <field name="total_discount" sum="Discount" widget="monetary"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_pos_customers_orders_report_search" model="ir.ui.view">
+            <field name="name">pos.customers.orders.report.search</field>
+            <field name="model">pos.customers.orders.report</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="POS Custoemrs Orders Reports">
+                    <field name="customers" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_view_pos_customers_orders_report_view">
+            <field name="name">POS Custoemrs Orders Reports</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.customers.orders.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_pos_customers_orders_report_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="target">current</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_customers_orders_report_form">
+            <field name="act_window_id" ref="act_open_view_pos_customers_orders_report_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pos_customers_orders_report_form" />
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_view_pos_customers_orders_report_tree">
+            <field name="act_window_id" ref="act_open_view_pos_customers_orders_report_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pos_customers_orders_report_tree" />
+        </record>
+    </data>
+
+    <menuitem id="menu_pos_customers_orders_report" name="Customers Orders Reports" parent="point_of_sale.menu_point_rep" action="act_open_view_pos_customers_orders_report_view" />
+
+</odoo>

@@ -1,0 +1,226 @@
+.middlepane{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    width: 210px;
+    height: 100%;
+    background: linear-gradient(to right, #536976 , #292E49);
+    border-right: solid 3px #787878;
+}
+.pos .control-button{
+    background: unset;
+    line-height: 45px;
+    border-radius: 7px;
+    padding: 5px;
+    color: white;
+    border: solid 1px #ffffff;
+}
+.pos .numpad{
+    border-left: 1px solid;
+    border-color: #ffffff;
+}
+.pos .leftpane {
+    left: 210px;
+    border:none;
+}
+.pos .rightpane {
+    left: 650px;
+    border-left: solid 3px #787878;
+}
+.pos .product .product-img img {
+    max-height: 120px;
+}
+.pos .product .product-name {
+    width: unset;
+    font-weight: bold;  
+}
+.pos .rightpane-header, .pos .category-simple-button{
+    font-weight: bold;
+    font-size: 15px;    
+    color:white;
+}
+.pos .popup .button {
+    background: rgba(224, 0, 0, 0.7);
+    color: white;
+}
+.pos .product .product-img {
+    position: initial;
+}
+.subwindow-container-fix.pads{
+       background: linear-gradient(to right, #536976 , #292E49);
+}
+.pos .pos-rightheader{
+    left: 652px;
+    border:none;
+}
+.pos .pos-branding{
+    width: 651px
+}
+.pos .product-list{
+    padding: 7px;
+    text-align: center;
+    background: linear-gradient(to right, #536976 , #292E49);
+}
+.pos .product{
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+.pos .rightpane-header,.pos .category-simple-button{
+    background: linear-gradient(to right, #536976 , #292E49);
+}
+.pos .screen{
+   background: linear-gradient(to right, #536976 , #292E49);
+}
+.pos .popup .title{
+    background: linear-gradient(to right, #536976 , #292E49);
+    color: white;
+}
+.pos .order .order-empty {
+    margin: 115px;
+    color: #6EC89B;
+}
+.screen .top-content .button {
+    background: unset;  
+    border-color: #ffff;
+
+}
+.screen .top-content {
+    color: white;
+    border-bottom: solid 1px rgb(255, 255, 255);
+}
+.screen .top-content {
+    background: unset; 
+}
+.screen .screen-content {
+    border-left: solid 1px rgb(255, 255, 255);
+    border-right: solid 1px rgb(255, 255, 255);
+}
+.pos .paymentlines-container {
+    border-bottom: solid 1px rgb(255, 255, 255);
+}
+.screen .left-content {
+    border-right: solid 1px rgb(255,255,255);
+}
+.payment-screen .payment-buttons .button {
+    background: unset;
+    color: white;
+    border-color: #ffff;
+}
+.paymentmethods .button {
+    background: unset;
+    border-color: #ffff;
+    color:white;
+}
+.pos button, .pos a.button {
+    background: unset;
+
+}
+.pos .numpad button {
+    color: white;
+    border-color: #ffff;
+}
+.pos .actionpad .button.set-customer {
+    color: white;   
+}
+.pos .actionpad .button.pay {
+    color: white;   
+}
+.pos .actionpad .button.pay .pay-circle {
+    background: unset;
+    border:2px solid;
+    color:white;
+}
+.pos .breadcrumb-button.breadcrumb-home {
+    color: white;
+}
+.pos .control-button .control-button-number {
+    color: #292e49;
+    background: rgb(255, 255, 255);
+}
+.pos .breadcrumb-button {
+    color: white;
+}
+.pos .pos-topheader {
+    background: linear-gradient(#536976 , #292E49);
+}
+.pos .clientlist-screen .client-details {
+    color: white;
+}
+.pos .clientlist-screen .edit-buttons .button {
+    color: white;
+}
+.payment-screen .payment-buttons .button .fa {
+    background: unset;
+    border:2px solid white;
+}
+.pos .category-list {
+    background: unset;
+}
+.screen .centered-content {
+    border-right: solid 1px white;
+    border-left: solid 1px white;
+}
+.pos .paymentline .col-due, .pos .paymentline .col-tendered, .pos .paymentline .col-change {
+    color: #2e354d;
+}
+table {
+    color: black;
+}
+.pos .control-button.highlight, .pos .button.highlight {
+    border: none;
+}
+.pos textarea:focus {
+    box-shadow: 0px 0px 0px 3px #1b4279;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 0rem;
+}
+
+.return-screen .order-list {
+    margin-left: 1em;
+}
+
+.payment-screen .paymentlines-empty .message {
+    color: #fff;
+}
+
+.pos .client-debt.negative, .pos .client-credit.positive {
+    color: red;
+}
+
+.pos .orders-list-screen .filters {
+    background: none;
+}
+
+
+
+.floor-selector .button {
+    color: #fff;
+}
+
+.pos .kitchen-screen .order-line {
+    color: #fff;
+}
+
+.pos .kitchen-screen .order-list-contents span:nth-child(even) {
+    color: #000;
+}
+
+.pos .kitchen-screen .order-line .btn, .pos .kitchen-screen .order-line .button {
+    background-color: #fff;
+}
+
+.pos .control-button.highlight, .pos .button.highlight {
+    color: #000;
+}
+
+.paymentlines .label {
+    color: #fff !important;
+}
+
+.pos .paymentline.selected .col-due {
+    color: #fff !important;
+}

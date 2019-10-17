@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_pvg_purchase_vendors_price_history_tree" model="ir.ui.view">
+            <field name="name">purchase.vendors.price.history.tree</field>
+            <field name="model">purchase.vendors.price.history</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Purchase Price Quote History">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="pv_price_history_vendors"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pvg_purchase_vendors_price_history_form" model="ir.ui.view">
+            <field name="name">purchase.vendors.price.history.form</field>
+            <field name="model">purchase.vendors.price.history</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Purchase Price Quote History">
+                    <sheet>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="company"/>
+                        </group>
+                        <group>
+                            <button name="calculate_pv_price_history_vendors" string="Calculate" type="object"
+                                    class="btn-primary"/>
+                        </group>
+                        <group>
+                            <field name="pv_price_history_vendors">
+                                <tree>
+                                    <field name="partner_id"/>
+                                    <field name="pv_price_history_lines"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="partner_id"/>
+                                        </group>
+                                        <group>
+                                            <field name="pv_price_history_lines">
+                                                <tree>
+                                                    <field name="product_id"/>
+                                                    <field name="product_uom"/>
+                                                    <field name="date"/>
+                                                    <field name="price"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pvg_purchase_vendors_price_history_pivot" model="ir.ui.view">
+            <field name="name">purchase.vendors.price.history.pivot</field>
+            <field name="model">purchase.vendors.price.history</field>
+            <field name="arch" type="xml">
+                <pivot string="Purchase Vendors Price History">
+                    <field name="pv_price_history_vendors"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_pvg_purchase_vendors_price_history_view">
+            <field name="name">Purchase Price Quote History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.vendors.price.history</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_vendors_price_history_view_form">
+            <field name="act_window_id" ref="act_open_pvg_purchase_vendors_price_history_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pvg_purchase_vendors_price_history_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_vendors_price_history_view_tree">
+            <field name="act_window_id" ref="act_open_pvg_purchase_vendors_price_history_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pvg_purchase_vendors_price_history_tree"/>
+        </record>
+
+<!--        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_vendors_price_history_view_pivot">-->
+<!--            <field name="act_window_id" ref="act_open_pvg_purchase_vendors_price_history_view"/>-->
+<!--            <field name="sequence" eval="10"/>-->
+<!--            <field name="view_mode">pivot</field>-->
+<!--            <field name="view_id" ref="view_pvg_purchase_vendors_price_history_pivot"/>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

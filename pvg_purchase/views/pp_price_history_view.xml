@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_pvg_purchase_products_price_history_tree" model="ir.ui.view">
+            <field name="name">purchase.products.price.history.tree</field>
+            <field name="model">purchase.products.price.history</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Purchase Products Price History">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="pp_price_history_lines"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pvg_purchase_products_price_history_form" model="ir.ui.view">
+            <field name="name">purchase.products.price.history.form</field>
+            <field name="model">purchase.products.price.history</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Purchase Products Price History">
+                    <sheet>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="company"/>
+                        </group>
+                        <group>
+                            <button name="claculate_pp_history_lines" string="Calculate" type="object" class="btn-primary"/>
+                        </group>
+                        <group>
+                            <field name="pp_price_history_lines">
+                                <tree>
+                                    <field name="product_id"/>
+                                    <field name="product_uom"/>
+                                    <field name="l_price"/>
+                                    <field name="bl_partner_id" string="Vendor"/>
+                                    <field name="bl_price" string="Vendor Price"/>
+                                    <field name="bl_date_order" string="Date"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_pvg_purchase_products_price_history_view">
+            <field name="name">Purchase Products Price History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.products.price.history</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_products_price_history_view_form">
+            <field name="act_window_id" ref="act_open_pvg_purchase_products_price_history_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pvg_purchase_products_price_history_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_products_price_history_view_tree">
+            <field name="act_window_id" ref="act_open_pvg_purchase_products_price_history_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pvg_purchase_products_price_history_tree"/>
+        </record>
+    </data>
+</odoo>

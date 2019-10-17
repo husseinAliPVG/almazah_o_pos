@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_pvg_purchase_deliveries_tree" model="ir.ui.view">
+            <field name="name">purchase.deliveries.tree</field>
+            <field name="model">purchase.deliveries</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Purchase Deliveries">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="deliveries_lines"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pvg_purchase_deliveries_form" model="ir.ui.view">
+            <field name="name">purchase.deliveries.form</field>
+            <field name="model">purchase.deliveries</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Purchase Deliveries">
+                    <sheet>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="company"/>
+                        </group>
+                        <group>
+                            <button name="calculate_deliveries_lines" string="Calculate" type="object" class="btn-primary"/>
+                        </group>
+                        <group>
+                            <field name="deliveries_lines">
+                                <tree>
+                                    <field name="partner_id"/>
+                                    <field name="deliveries"/>
+                                    <field name="positions"/>
+                                    <field name="amount_untaxed" sum="Total Untaxed" widget="monetary"/>
+                                    <field name="amount_total" sum="Total" widget="monetary"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_pvg_purchase_deliveries_view">
+            <field name="name">Purchase Deliveries</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.deliveries</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_deliveries_view_form">
+            <field name="act_window_id" ref="act_open_pvg_purchase_deliveries_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pvg_purchase_deliveries_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_deliveries_view_tree">
+            <field name="act_window_id" ref="act_open_pvg_purchase_deliveries_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pvg_purchase_deliveries_tree"/>
+        </record>
+    </data>
+</odoo>

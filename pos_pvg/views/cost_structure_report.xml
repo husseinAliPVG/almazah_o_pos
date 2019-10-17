@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="pvg_mrp_cost_structure" inherit_id="mrp_account.mrp_cost_structure" priority="100">
+        <xpath expr="//span[@res-model='mrp.bom.line']" position="after">
+<!--            <t t-if="m['scrapped']">-->
+                <span style="color: red;">Scrap</span>
+<!--            </t>-->
+        </xpath>
+    </template>
+</odoo>

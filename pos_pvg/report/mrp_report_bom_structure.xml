@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="pvg_report_mrp_bom" inherit_id="mrp.report_mrp_bom" priority="100">
+        <xpath expr="//th[@class='text-left']" position="after">
+            <th class="text-right">Scrap</th>
+            <th class="text-right">Total</th>
+        </xpath>
+        <xpath expr="//table[@class='o_mrp_bom_expandable']/tfoot/tr/td[@groups='uom.group_uom']" position="after">
+            <td></td>
+            <td></td>
+        </xpath>
+        <xpath expr="//table[@class='o_mrp_bom_expandable']/tbody/tr/td[@groups='uom.group_uom']" position="after">
+            <td></td>
+            <td></td>
+        </xpath>
+    </template>
+
+    <template id="pvg_report_mrp_bom_line" inherit_id="mrp.report_mrp_bom_line">
+        <xpath expr="//td[@groups='uom.group_uom']" position="after">
+            <td class="text-right">
+                <span>
+                    <t t-esc="l['prod_scrap_qty']"
+                       t-options='{"widget": "float", "decimal_precision": "Product Unit of Measure"}'/>
+                </span>
+            </td>
+            <td class="text-right">
+                <span>
+                    <t t-esc="l['prod_total_qty']"
+                       t-options='{"widget": "float", "decimal_precision": "Product Unit of Measure"}'/>
+                </span>
+            </td>
+        </xpath>
+    </template>
+
+
+    <template id="pvg_report_mrp_bom_pdf_line" inherit_id="mrp.report_mrp_bom_pdf_line">
+        <xpath expr="//td[@groups='uom.group_uom']" position="after">
+            <td class="text-right">
+                <span>
+                    <t t-esc="l['scrap_quantity']"
+                       t-options='{"widget": "float", "decimal_precision": "Product Unit of Measure"}'/>
+                </span>
+            </td>
+            <td class="text-right">
+                <span>
+                    <t t-esc="l['total_quantity']"
+                       t-options='{"widget": "float", "decimal_precision": "Product Unit of Measure"}'/>
+                </span>
+            </td>
+        </xpath>
+    </template>
+    <!--    <template id="pvg_report_mrp_operation_line" inherit_id="mrp.report_mrp_operation_line">-->
+    <!--        <xpath expr="//td[@groups='uom.group_uom']" position="after">-->
+    <!--            <td class="text-right">-->
+    <!--&lt;!&ndash;                <span>&ndash;&gt;-->
+    <!--&lt;!&ndash;                    <t t-esc="l['prod_scrap_qty']"&ndash;&gt;-->
+    <!--&lt;!&ndash;                       t-options='{"widget": "float", "decimal_precision": "Product Unit of Measure"}'/>&ndash;&gt;-->
+    <!--&lt;!&ndash;                </span>&ndash;&gt;-->
+    <!--            </td>-->
+    <!--            <td class="text-right">-->
+    <!--&lt;!&ndash;                <span>&ndash;&gt;-->
+    <!--&lt;!&ndash;                    <t t-esc="l['prod_total_qty']"&ndash;&gt;-->
+    <!--&lt;!&ndash;                       t-options='{"widget": "float", "decimal_precision": "Product Unit of Measure"}'/>&ndash;&gt;-->
+    <!--&lt;!&ndash;                </span>&ndash;&gt;-->
+    <!--            </td>-->
+    <!--        </xpath>-->
+    <!--    </template>-->
+
+</odoo>

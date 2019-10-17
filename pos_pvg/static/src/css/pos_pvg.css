@@ -1,0 +1,36 @@
+.pos .window {
+    position: relative;
+}
+
+.order-type-selector .button.active {
+    background: #6EC89B;
+    color: white;
+}
+
+.order-type-selector .button:first-child {
+    border-left: none;
+}
+
+.order-type-selector .button {
+    cursor: pointer;
+    border-left: dashed 1px rgb(196,196,196);
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.order-type-selector {
+    line-height: 48px;
+    font-size: 18px;
+    display: -webkit-flex;
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+
+.order-submit {
+    display: none !important;
+}
+
+.screen .screen-content {
+    max-width: 90%;
+}

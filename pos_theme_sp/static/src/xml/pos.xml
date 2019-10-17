@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="ProductScreenWidget">
+        <t t-jquery=".leftpane" t-operation="after">
+            <t t-if="widget.pos.config.allow_pos_theme">
+                <div class="middlepane">
+                   <div class="control-buttons oe_hidden"></div>
+                </div>
+            </t>
+        </t>
+        <t t-jquery=".subwindow-container-fix.pads .control-buttons" t-operation="replace">
+            <t t-if="! widget.pos.config.allow_pos_theme">
+                <div class="control-buttons oe_hidden"></div>
+            </t>
+        </t>
+
+
+    </t>
+    <t t-extend="OrderWidget">
+        <t t-jquery='.summary .line' t-operation='after'>
+            <div style="float: left;background: #6EC89B;padding: 16px;color:white;">
+                Total Items : <span class="count_num_item">0</span>
+            </div>
+        </t>
+    </t>
+</templates>

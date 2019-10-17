@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="pos_pvg_mrp.template" xml:space="preserve">
+    <t t-extend="Orderline">
+        <t t-jquery='.info-list' t-operation='after'>
+            <t t-if="line.ordered">
+                <i class="info">
+                    <em>
+                        <strong style="color: green;">
+                        Sent to kitchen
+                        </strong>
+                    </em>
+                </i>
+            </t>
+        </t>
+    </t>
+</templates>

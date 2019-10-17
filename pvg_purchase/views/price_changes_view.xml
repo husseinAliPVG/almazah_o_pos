@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_pvg_purchase_price_changes_tree" model="ir.ui.view">
+            <field name="name">purchase.price.changes.tree</field>
+            <field name="model">purchase.price.changes</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Purchase Price Changes">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="price_changes_lines"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pvg_purchase_price_changes_form" model="ir.ui.view">
+            <field name="name">purchase.price.changes.form</field>
+            <field name="model">purchase.price.changes</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Purchase Price Changes">
+                    <sheet>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="company"/>
+                        </group>
+                        <group>
+                            <button name="calculate_price_changes_lines" string="Calculate" type="object" class="btn-primary"/>
+                        </group>
+                        <group>
+                            <field name="price_changes_lines">
+                                <tree>
+                                    <field name="product_id"/>
+                                    <field name="product_uom"/>
+                                    <field name="partner_id"/>
+                                    <field name="old_qty"/>
+                                    <field name="old_date"/>
+                                    <field name="old_price"/>
+                                    <field name="new_qty"/>
+                                    <field name="new_date"/>
+                                    <field name="new_price"/>
+                                    <field name="diff"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_pvg_purchase_price_changes_view">
+            <field name="name">Purchase Price Changes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.price.changes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_price_changes_view_form">
+            <field name="act_window_id" ref="act_open_pvg_purchase_price_changes_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pvg_purchase_price_changes_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_pvg_purchase_price_changes_view_tree">
+            <field name="act_window_id" ref="act_open_pvg_purchase_price_changes_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_pvg_purchase_price_changes_tree"/>
+        </record>
+    </data>
+</odoo>

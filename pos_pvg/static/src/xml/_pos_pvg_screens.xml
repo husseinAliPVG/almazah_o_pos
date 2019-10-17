@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- <t t-name="TakeAway">
+        <div class='control-button'>
+            <i class='fa fa-tag' />
+ Takeaway
+        </div>
+    </t> -->
+
+    <!-- <t t-extend="Chrome">
+        <t t-jquery="div.pos-rightheader" t-operation="append">
+            <span class="takeaway">Take Away</span>
+        </t>
+    </t> -->
+
+    <!-- <t t-extend="Chrome">
+        <t t-jquery="div.window" t-operation="before">
+            <div class='order-type-selector'>
+                <t t-name="OrderType">
+                    <span class='button_takeaway button'>Takeaway</span>
+                    <span class='button_delivery button'>Delivery</span>
+                    <span class='button_dining button'>Dining</span>
+                </t>
+            </div>
+        </t>
+    </t> -->
+
+    <!-- <t t-name="startWidget">
+        <div class="screen-content">
+            <div class="top-content">
+                <div class='order-type-selector'>
+                    <span class='button_takeaway button'>Takeaway</span>
+                    <span class='button_delivery button'>Delivery</span>
+                    <span class='button_dining button'>Dining</span>
+                </div>
+            </div>
+        </div>
+    </t> -->
+</templates>

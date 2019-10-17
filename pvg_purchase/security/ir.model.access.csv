@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pvg_purchase_accruals,pvg.purchase.accruals.user,model_purchase_accruals,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_accruals_lines,pvg.purchase.accruals.lines.user,model_purchase_accruals_lines,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_deliveries,pvg.purchase.deliveries.user,model_purchase_deliveries,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_deliveries_lines,pvg.purchase.deliveries.lines.user,model_purchase_deliveries_lines,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_price_changes,pvg.purchase.price.changes.user,model_purchase_price_changes,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_price_changes_lines,pvg.purchase.price.changes.lines.user,model_purchase_price_changes_lines,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_vendors_price_history,pvg.purchase.vendors.price.history.user,model_purchase_vendors_price_history,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_vendors_price_history_lines,pvg.purchase.vendors.price.history.lines.user,model_purchase_vendors_price_history_lines,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_vendors_price_history_vendor,pvg.purchase.vendors.price.history.vendor.user,model_purchase_vendors_price_history_vendor,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_products_price_history,pvg.purchase.products.price.history.user,model_purchase_products_price_history,purchase.group_purchase_user,1,1,1,1
+pvg_purchase_products_price_history_lines,pvg.purchase.products.price.history.lines.user,model_purchase_products_price_history_lines,purchase.group_purchase_user,1,1,1,1

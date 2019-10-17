@@ -1,0 +1,87 @@
+.middlepane{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    width: 210px;
+    height: 100%;
+    background: #F0FFFF;
+    border-right: solid 3px #787878;
+}
+.pos .control-button{
+    border:none;
+    line-height: 45px;
+    border-radius: 7px;
+    padding: 5px;
+}
+.pos .numpad{
+    border-left: 1px solid;
+    border-color: #c0c0bf;
+}
+.pos .leftpane {
+    left: 210px;
+    border:none;
+}
+.pos .rightpane {
+    left: 650px;
+    border-left: solid 3px #787878;
+}
+.pos .product .product-img img {
+    max-height: 120px;
+}
+.pos .product .product-name {
+    width: unset;
+    font-weight: bold;  
+}
+.pos .rightpane-header, .pos .category-simple-button{
+    font-weight: bold;
+    font-size: 15px;    
+}
+.pos .popup .button {
+    background: rgba(224, 0, 0, 0.7);
+    color: white;
+}
+.pos .product .product-img {
+    position: initial;
+}
+.subwindow-container-fix.pads{
+	    background: #F0FFFF;
+}
+.pos .pos-rightheader{
+    left: 652px;
+    border:none;
+}
+.pos .pos-branding{
+    width: 651px
+}
+.pos .product-list{
+    padding: 7px;
+    text-align: center;
+	background: #F0FFFF;
+}
+.pos .product{
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+.pos .rightpane-header,.pos .category-simple-button{
+	background: #F0FFFF;
+}
+.pos .screen{
+	background: #F0FFFF;
+}
+.pos .popup .title{
+	background: #F0FFFF;
+}
+.pos .order .order-empty {
+    margin: 115px;
+    color: #6EC89B;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 0rem;
+}
+
+.return-screen .order-list {
+    margin-left: 1em;
+}

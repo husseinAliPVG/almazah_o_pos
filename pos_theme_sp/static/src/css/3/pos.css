@@ -1,0 +1,282 @@
+.middlepane{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    width: 210px;
+    height: 100%;
+    background: #526774;
+    border-right: solid 3px #787878;
+}
+.pos .control-button{
+    background: unset;
+    line-height: 45px;
+    border-radius: 7px;
+    padding: 5px;
+    color: white;
+    border: solid 1px #ffffff;
+}
+.pos .numpad{
+    border-left: 1px solid;
+    border-color: #ffffff;
+}
+.pos .leftpane {
+    left: 210px;
+    border:none;
+}
+.pos .rightpane {
+    left: 650px;
+    border-left: solid 3px #787878;
+}
+.pos .product .product-img img {
+    max-height: 120px;
+}
+.pos .product .product-name {
+    width: unset;
+    font-weight: bold;  
+}
+.pos .rightpane-header, .pos .category-simple-button{
+    font-weight: bold;
+    font-size: 15px;    
+    color:white;
+}
+.pos .popup .button {
+    background: rgb(15, 66, 121);
+    color: white;
+}
+.pos .product .product-img {
+    position: initial;
+}
+.subwindow-container-fix.pads{
+       background: #526774;
+}
+.pos .pos-rightheader{
+    left: 652px;
+    border:none;
+}
+.pos .pos-branding{
+    width: 651px
+}
+.pos .product-list{
+    padding: 7px;
+    text-align: center;
+    background: #526774;
+}
+.pos .product{
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+.pos .rightpane-header,.pos .category-simple-button{
+    background: #526774;
+}
+.pos .screen{
+   background: #526774;
+}
+.pos .popup .title{
+   background: rgb(15, 66, 121);
+    color: white;
+}
+.pos .order .order-empty {
+    margin: 115px;
+    color: #1c4671;
+}
+.screen .top-content .button {
+    background: unset;  
+    border-color: #ffff;
+
+}
+.screen .top-content {
+    color: white;
+    border-bottom: solid 1px rgb(255, 255, 255);
+}
+.screen .top-content {
+    background: unset; 
+}
+.screen .screen-content {
+    border-left: solid 1px rgb(255, 255, 255);
+    border-right: solid 1px rgb(255, 255, 255);
+}
+.pos .paymentlines-container {
+    border-bottom: solid 1px rgb(255, 255, 255);
+    color: rgb(46, 65, 78);
+}
+.screen .left-content {
+    border-right: solid 1px rgb(255,255,255);
+}
+.payment-screen .payment-buttons .button {
+    background: unset;
+    color: white;
+    border-color: #ffff;
+}
+.paymentmethods .button {
+    background: unset;
+    border-color: #ffff;
+    color:white;
+}
+.pos button, .pos a.button {
+    background: unset;
+
+}
+.pos .numpad button {
+    color: white;
+    border-color: #ffff;
+}
+.pos .actionpad .button.set-customer {
+    color: white;   
+}
+.pos .actionpad .button.pay {
+    color: white;   
+}
+.pos .actionpad .button.pay .pay-circle {
+    background: unset;
+    border:2px solid;
+    color:white;
+}
+.pos .breadcrumb-button.breadcrumb-home {
+    color: white;
+}
+.pos .control-button .control-button-number {
+    color: #292e49;
+    background: rgb(255, 255, 255);
+}
+.pos .breadcrumb-button {
+    color: white;
+}
+.pos .pos-topheader {
+    background: #2e424e;
+}
+.pos .clientlist-screen .client-details {
+    color: white;
+}
+.pos .clientlist-screen .edit-buttons .button {
+    color: white;
+}
+.pos .paymentlines-container {
+    color: white;
+}
+.payment-screen .payment-buttons .button .fa {
+    background: unset;
+    border:2px solid white;
+}
+.pos .category-list {
+    background: unset;
+}
+.screen .centered-content {
+    border-right: solid 1px white;
+    border-left: solid 1px white;
+}
+.pos .order-button.square {
+    background: #054671;
+    color: white;
+}
+.pos .mode-button.selected-mode:hover {
+    background: #2e424e;
+    color: white;
+    border-color: unset;
+}
+.pos .mode-button.selected-mode {
+    color: white;
+    background: #054671;
+    border-color: unset;
+}
+.pos .order-button.floor-button {
+    background: #054671;
+}
+.payment-screen .paymentlines-empty .total {
+    font-size: 70px;
+    color: #ffffff;
+    text-shadow: unset;
+}
+.pos .paymentline.selected {
+    background: #054671;
+}
+.pos .paymentline.selected .edit {
+    color: #054671;
+    box-shadow: 0px 0px 0px 3px #054671;
+}
+.pos .paymentline .col-change.highlight{
+    background: rgb(46, 65, 78);
+    color: white;
+}
+.pos .control-button.highlight, .pos .button.highlight {
+    background: #1c4671 !important;
+}
+.pos .leftpane .pads {
+    border-top: solid 3px #1c4671;
+}
+
+.paymentmethods .button:active {
+    background: #1c4671;
+    border-color: white;
+}
+.pos .categories {
+    border-bottom: solid 3px rgb(28, 70, 113);
+}
+.pos .paymentline.extra .col-due {
+    color: #1c4671;
+}
+.pos .paymentline .col-due, .pos .paymentline .col-tendered, .pos .paymentline .col-change {
+    color: #2e354d;
+}
+.pos .paymentlines-container {
+    color: #1c4671;
+}
+.pos .clientlist-screen .client-list tr.highlight {
+    background: rgb(28, 70, 113) !important;
+}
+.pos .clientlist-screen .client-details {
+    border-bottom: solid 5px rgb(28, 70, 113);
+}
+.pos .control-button.highlight, .pos .button.highlight {
+   border: solid 0px #64AF8A !important;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 0rem;
+}
+
+.return-screen .order-list {
+    margin-left: 1em;
+}
+
+.payment-screen .paymentlines-empty .message {
+    color: #fff;
+}
+
+.pos .client-debt.negative, .pos .client-credit.positive {
+    color: red;
+}
+
+.pos .orders-list-screen .filters {
+    background: none;
+}
+
+
+.floor-selector .button {
+    color: #fff;
+}
+
+.pos .kitchen-screen .order-line {
+    color: #fff;
+}
+
+.pos .kitchen-screen .order-list-contents span:nth-child(even) {
+    color: #000;
+}
+
+.pos .kitchen-screen .order-line .btn, .pos .kitchen-screen .order-line .button {
+    background-color: #fff;
+}
+
+.pos .control-button.highlight, .pos .button.highlight {
+    color: #000;
+}
+
+.paymentlines .label {
+    color: #fff !important;
+}
+
+.pos .paymentline.selected .col-due {
+    color: #fff !important;
+}

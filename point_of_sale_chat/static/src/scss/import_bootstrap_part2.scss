@@ -1,0 +1,26 @@
+
+// This file is importing bootstrap. While a simple "import "bootstrap";"
+// should be enough, this does not allow overridding mixins. Overridding mixins
+// is necessary for some of our need and allow to generate more efficient CSS
+// than adding more rules. This file instead copies the second part of the
+// content of the "bootstrap.scss" files to allow adding mixin overrides in
+// between.
+
+@import "root";
+
+@import "type";
+@import "images";
+@import "code";
+@import "grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "dropdown";
+@import "button-group";
+@import "input-group";
+
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "utilities";
+

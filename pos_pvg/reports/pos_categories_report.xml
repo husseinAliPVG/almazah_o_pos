@@ -1,0 +1,92 @@
+<odoo>
+    <report id="pos_categories_report" string="POS Categories Report" model="pos.categories.report"
+            report_type="qweb-html" name="pos_pvg.report_pos_categories_template"/>
+    <template id="report_pos_categories_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <br/>
+                    <br/>
+                    <div class="row bg-primary">
+                        <div class="col-12 h3" style="text-align: center;">
+                            <span>POS Categories Report</span>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div style="page-break-inside: avoid">
+                        <t t-foreach="docs" t-as="doc">
+                            <div class="row">
+                                <div class="col-6">
+                                    <strong>From:</strong>
+                                    <span t-field="doc.start_date"/>
+                                </div>
+                                <div class="col-6">
+                                    <strong>To:</strong>
+                                    <span t-field="doc.end_date"/>
+                                </div>
+                            </div>
+                            <table class="table o_report_block_table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>
+                                            <span>Sales QTY</span>
+                                        </th>
+                                        <th>
+                                            <span>% of total</span>
+                                        </th>
+                                        <th>
+                                            <span>Net sales</span>
+                                        </th>
+                                        <th>
+                                            <span>% of total</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="doc.report_categories" t-as="category">
+                                        <tr t-foreach="category.categories_report_products" t-as="product">
+                                            <td>
+                                                <span t-field="product.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="product.qty"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="'{:10.2f}'.format(product.qty_per)"/><span>%</span>
+                                            </td>
+                                            <td>
+                                                <span t-field="product.sales"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="'{:10.2f}'.format(product.sales_per)"/><span>%</span>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: solid 2px; color: red;">
+                                            <td>
+                                                <strong t-field="category.name"/>
+                                            </td>
+                                            <td>
+                                                <strong t-field="category.qty"/>
+                                            </td>
+                                            <td>
+                                                <strong t-esc="'{:10.2f}'.format(category.qty_per)"/><span>%</span>
+                                            </td>
+                                            <td>
+                                                <strong t-field="category.sales"/>
+                                            </td>
+                                            <td>
+                                                <strong t-esc="'{:10.2f}'.format(category.sales_per)"/><span>%</span>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="pos_theme assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_theme_sp/static/src/js/pos.js"></script>
+            </xpath>
+        </template>
+        <template id="index" name="pos_theme" inherit_id="point_of_sale.index">
+            <xpath expr="//head" position="inside">
+            	<t t-if="theme_id">
+                	<link rel="stylesheet" type="text/css" t-attf-href="/pos_theme_sp/static/src/css/#{theme_id}/pos.css"/>
+            	</t>
+            </xpath>
+        </template>
+    </data>
+</odoo>
